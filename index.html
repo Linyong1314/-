@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="city-top">
+        <div class="page top-inner">
+            <div class="top-left">
+                <span>关注我们:</span>
+                <a href="#"><img src="http://wwwimg.metroer.com/templates/default/images/icon-weibo.png" alt=""></a>
+                <a href="#" id="weixin-on"><img src="http://wwwimg.metroer.com/templates/default/images/icon-weixin.png" alt=""></a>
+                <div class="weixin"><img src="images/weixin.jpg" alt=""></div>
+            </div>
+            <div class="top-rig">
+                <div class="user">
+                    <a href="#">登录</a>
+                    <span>OR</span>
+                    <a href="#">注册</a>
+                </div>
+                <div class="search">
+                    <input class="sear-boss" type="text" placeholder="搜索" value="">
+                    <input class="sear-btn" type="submit" value="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="city-header">
+        <div class="page header-nav">
+            <div class="city-logo"><a href="#"><img src="images/logo.jpg" alt=""></a></div>
+            <div class="city-nav">
+                    <a href="#">首页</a>
+                    <a href="#" class="nav-on">Beauty</a>
+                    <a href="#">优品试用</a>
+                    <a href="#">美妆教室</a>
+                    <a href="#">品牌专区</a>
+                    <a href="#">福利社</a>
+                    <a href="#">社区</a>
+                    <div class="beauty-nav">
+                        <a href="#">测评</a>
+                        <a href="#">护肤</a>
+                        <a href="#">彩妆</a>
+                        <a href="#">美体</a>
+                        <a href="#">时尚</a>
+                        <a href="#">生活</a>
+                        <a href="#">明星</a>
+                        <a href="#">旅游</a>
+                        <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="city-footer">
+        <div class="f-container">
+            <div class="con-left">
+                <img src="http://wwwimg.metroer.com/templates/default/images/footer-logo.jpg">
+            </div>
+            <div class="con-right">
+                <div class="c-r-nav">
+                    <a href="http://ilady.metroer.com/html/right.html">授权声明</a>
+                    <span>|</span>
+                    <a href="http://ilady.metroer.com/html/hr.html">招聘信息</a>
+                    <span>|</span>
+                    <a href="http://ilady.metroer.com/html/contact.html">联系信息</a>
+                    <span>|</span>
+                    <a href="http://ilady.metroer.com/html/ads.html">广告服务</a>
+                    <span>|</span>
+                    <a href="http://ilady.metroer.com/html/coop.html">合作媒体</a>
+                    <span>|</span>
+                    <a href="http://ilady.metroer.com/html/mtdt.html">媒体动态</a>
+                </div>
+                <div class="copyright">
+                    <p>版权所有：上海森音信息技术有限公司 电话：（+86）63353637-670 （工作日 09：00-18:00）</p>
+                    <p>Copyright Metroer.com All Rights Reseved 沪ICP备05019890号-1</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="clear"></div>
+            <div class="friendlink">
+                友情链接：
+                <a href="http://www.modernweekly.com/" target="_blank">周末画报</a>
+                <a href="http://www.cityhowwhy.com.hk/" target="_blank">CityMagazine</a>
+                <a href="http://www.ilohas.com/" target="_blank">Lohas乐活</a>
+                <a href="http://www.chinalifemagazine.com/" target="_blank">生活月刊</a>
+                <a href="http://www.theoutlookmagazine.com/" target="_blank">新视线</a>
+                <a href="http://www.milanquan.com/" target="_blank">米兰圈</a>
+                <a href="http://www.guoli.com/" target="_blank">果粒网</a>
+                <a href="http://www.vcbeat.net/" target="_blank">动脉网</a>
+            </div>
+        </div>
+        <div class="f-bottom">
+            Power By Modern Media
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var sub_t = 0;
+    $(".nav-on, .beauty-nav").hover(function () {
+        clearTimeout(sub_t);
+        $(".beauty-nav").fadeIn();
+    }, function () {
+        sub_t = setTimeout(function () {
+            $(".beauty-nav").fadeOut();
+        }, 300);
+    });
+
+    $(".beauty-nav a").hover(function () {
+        $(this).css("background", "#999");
+    }, function () {
+        $(this).css("background", "rgba(40,40,40,0.9)");
+    });
+
+    var sub_n = 0;
+    $("#weixin-on, .weixin").hover(function () {
+        clearTimeout(sub_n);
+        $(".weixin").show();
+    }, function () {
+        sub_n = setTimeout(function () {
+            $(".weixin").hide();
+        });
+    });
+</script>

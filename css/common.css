@@ -1,0 +1,30 @@
+html {
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-family: "Microsoft YaHei",'微软雅黑',Arial,Helvetica,sans-serif;
+    background-color: #f7f7f7;
+}
+body,div,img,ul,li,button,span,input,p,h3 {
+    padding: 0;
+    margin: 0;
+}
+.city-container {
+    background-color: #fff;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+ul {
+    list-style: none;
+}
+a:hover {
+    color: #999;
+}
+.page {
+    width: 1200px;
+    margin: 0 auto;
+}
+.clear {
+    clear: both;
+}

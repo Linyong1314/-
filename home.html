@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+   <!--  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"> -->
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <style type="text/css">
+        /****<-home-feature->****/
+        .home-feature {
+            margin-top: 30px;
+            height: 238px;
+        }
+        .home-feature-item {
+            float: left;
+            width: 280px;
+            margin: 0 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .home-feature-item .title {
+            position: relative;
+        }
+        .home-feature-item .title>span {
+            width: 140px;
+            height:8px;
+            background-color: #f5f5f5;
+            position: absolute;
+            top:20px;
+            left:70px;
+        }
+        .home-feature-item .title a {
+            font-size: 20px;
+            color: #666;
+            z-index: 10;
+        }
+        .home-feature-item .title > .cover {
+            height: 200px;
+            margin-top: 15px;
+            position: relative;
+        }
+        .home-feature-img-title {
+            display: block;
+            width: 100%;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            font-size: 14px;
+            line-height: 40px;
+            color: #fff;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+        /****<-hone-feature->****/
+        .home-category-title {
+            height: 97px;
+            float: left;
+        }
+        .home-category-title img {
+            padding-top: 35px;
+            padding-bottom: 35px;
+        }
+        .home-category {
+            float: left;
+        }
+        .home-category-nav {
+            height: 27px;
+            text-align: center;
+        }
+        .home-category-nav > a {
+            font-size: 16px;
+            color: #999;
+            margin: 0 20px;
+        }
+        .h-category-banner {
+            width: 880px;
+            height: 350px;
+            float: left;
+            margin: 10px;
+            overflow: hidden;
+        }
+        .h-category-hot {
+            width: 260px;
+            height: 330px;
+            float: left;
+            margin: 10px;
+            padding: 10px;
+            background-color: #E9EAEB;
+        }
+        .h-category-hot .title {
+            text-align: center;
+        }
+        .h-category-hot .title span:nth-of-type(1) {
+            font-size: 30px;
+        }
+        .h-category-hot .title span:nth-of-type(2) {
+            font-size: 20px;
+        }
+        .h-category-hot ul {
+            background-color: #fff;
+            padding: 10px;
+            position: relative;
+        }
+        .h-category-hot ul li {
+            height: 30px;
+            font-size: 16px;
+            margin-top: 9px;
+            overflow: hidden;
+        }
+        .h-category-hot ul li > .iconfont {
+            padding-right: 10px;
+        }
+        .h-category-hot ul li a {
+            line-height: 30px;
+        }
+        .h-category-article {
+            width: 280px;
+            height: 430px;
+            margin: 10px;
+            background-color: #FAFAFB;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+            transition: all 0.5s;
+        }
+        .h-category-article:hover {
+            box-shadow: #666 0 0 9px;
+        }
+        .h-category-article p:nth-of-type(1) {
+            font-size: 18px;
+            color: #999;
+            margin: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #999999;
+            text-indent: 10px;
+        }
+        .h-category-article p:nth-of-type(2) {
+            color: #999999;
+            margin: 10px 15px;
+            text-align: justify;
+            overflow: hidden;
+            line-height: 1.7;
+        }
+        .h-category-article p:nth-of-type(3) {
+            width: 270px;
+            text-align: right;
+            position: absolute;
+            bottom: 15px;
+        }
+        .h-category-article p > .iconfont {
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        .h-category-goto {
+            width: 280px;
+            height: 430px;
+            float: left;
+            margin: 10px;
+            background-color: #fff;
+            box-sizing: border-box;
+            transition: all 0.5s;
+        }
+        .h-category-goto:hover {
+            box-shadow: #666 0 0 9px;
+        }
+        .h-category-goto .goto {
+            overflow: hidden;
+            position: relative;
+            width: 280px;
+            height: 210px;
+        }
+        .h-category-goto .goto:nth-of-type(1) {
+            margin-bottom: 10px;
+        }
+        .h-category-goto .goto a > span {
+            display: block;
+            height: 30px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff;
+            z-index: 10;
+            line-height: 30px;
+            padding-right: 10px;
+        }
+        .h-category-goto .goto a span > .iconfont {
+            font-size: 12px;
+            padding-right: 10px;
+        }
+        /****<-top-brand-list->****/
+        .top-brand-list {
+            padding: 0 15px;
+            float: left;
+        }
+        .top-brand-list .top-brand-item:nth-of-type(5n+1) {
+            margin-left: 0;
+        }
+        .top-brand-item {
+            float: left;
+            margin-top: 40px;
+            width: 218px;
+            height: 281px;
+            margin-left: 20px;
+        }
+        .top-brand-item > .cover {
+            padding: 10px;
+            width: 218px;
+            height: 218px;
+            position: relative;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+        }
+        .top-brand-item .cover a > img {
+            width: 198px;
+            height: 198px;
+        }
+        .top-brand-item .cover > p {
+            font-size: 20px;
+            position: absolute;
+            top: -10px;
+            left: 0;
+        }
+        .top-brand-item .title {
+            font-size: 18px;
+            margin-top: 8px;
+        }
+        .top-brand-item .fields {
+            margin-top: 14px;
+        }
+        .top-brand-item .fields span a {
+            color: #666;
+        }
+        .top-brand-item .fields .iconfont {
+            padding-right: 8px;
+        }
+        .top-brand-item .fields .comments {
+            padding-right: 10px;
+            border-right: 1px solid #ddd;
+        }
+        .top-brand-item .fields .goods {
+            padding-left: 10px;
+        }
+        /*****<-home-hot-list->*****/
+        .home-hot-list {
+            float: left;
+            height: 440px;
+        }
+        .home-hot-item {
+            margin: 10px;
+            width: 280px;
+            height: 410px;
+            background-color: #fafafb;
+            float: left;
+            box-sizing: border-box;
+            transition: all 0.5s;
+        }
+        .home-hot-item:hover {
+            box-shadow: #666 0 0 9px;
+        }
+        .home-hot-item .cover {
+            width: 280px;
+            height: 340px;
+            overflow: hidden;
+            float: left;
+        }
+        .home-hot-item .avater {
+            float: left;
+        }
+        .home-hot-item .avater img {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .home-hot-item .description {
+            width: 200px;
+            height: 50px;
+            margin: 10px 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            float: left;
+            padding: 5px 10px;
+            color: #999;
+            background-color: #fff;
+            border-radius: 5px;
+            position: relative;
+        }
+        .home-hot-item .description p {
+            height: 40px;
+            font-size: 12px;
+            overflow: hidden;
+            line-height: 1.7;
+        }
+        .home-hot-item .description span {
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-left: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            background-color: #fff;
+            position: absolute;
+            top: 10px;
+            left: -5px;
+            transform: rotate(45deg);
+        }
+        .home-hot-item .description .arrow2 {
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-right: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+            background-color: #fff;
+            position: absolute;
+            top: 10px;
+            right: -5px;
+            transform: rotate(45deg);
+        }
+        .home-hot-item .topic-list {
+            overflow: hidden;
+            position: relative;
+            width: 280px;
+            height: 200px;
+            background-color: #E9EAEB;
+        }
+        .home-hot-item .goto {
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .home-hot-item .goto a img {
+            width: 280px;
+            height: 200px;
+        }
+        .home-hot-item .topic-list .title {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+        .home-hot-item .topic-list .title span {
+            font-size: 30px;
+        }
+        .home-hot-item .topic-list ul {
+            background-color: #fff;
+            margin: 0 10px 0 10px;
+            line-height: 1.7;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .home-hot-item .topic-list ul li {
+            height: 27px;
+            overflow: hidden;
+        }
+        .home-hot-item .topic-list ul li .iconfont {
+            font-size: 14px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="city-container page" style="margin-top: 40px">
+        <div id="city-swipe" class="city-swipe">
+            <div class='city-swipe-wrap'>
+                <div><img src="http://wwwimg.metroer.com/upload/1702/06/19398422155897cf587f9d78.96740139.jpg" /></div>
+                <div><img src="http://wwwimg.metroer.com/upload/1702/09/1693589957589c1182e9ca49.94381569.jpg" /></div>
+                <div><img src="http://wwwimg.metroer.com/upload/1702/12/181741378358a02a82256f76.23319376.jpg" /></div>
+            </div>
+            <div class="yuandian">
+                <ul>
+                    <li class="cur"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="home-feature">
+            <div class="home-feature-item">
+                <div class="title">
+                    <span></span>
+                    <a href="#">优品试用</a>
+                    <div class="cover">
+                        <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/09/770798051589c11a2440022.79933677.jpg" alt="">
+                            <span class="home-feature-img-title">雅漾活泉保湿面膜</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="home-feature-item">
+                <div class="title">
+                    <span></span>
+                    <a href="#">福利社</a>
+                    <div class="cover">
+                        <a href="#"><img src="http://wwwimg.metroer.com/upload/1605/19/1748804159573d74500c4974.52060288.jpg" alt="">
+                            <span class="home-feature-img-title">都市客福利社，精彩礼品等你来换。</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="home-feature-item">
+                <div class="title">
+                    <span></span>
+                    <a href="#">精品推荐</a>
+                    <div class="cover">
+                        <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/06/15381258265897f5bc23b110.43452996.jpg" alt="">
+                            <span class="home-feature-img-title">评价banila co. 芭妮兰 有机会赢得媚眼彩盘眼影</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="home-feature-item">
+                <div class="title">
+                    <span></span>
+                    <a href="#">精选推荐</a>
+                    <div class="cover">
+                        <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/10/1727428035589d666130b1f7.80893202.jpg" alt="">
+                            <span class="home-feature-img-title">寿司、金属丝？美甲届要撸起袖子干啦！</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="home-category-title">
+            <img src="http://wwwimg.metroer.com/templates/default/images/home-category-1.jpg" alt="">
+        </div>
+        <div class="home-category">
+            <div class="home-category-nav">
+                <a href="#">测评</a>
+                <a href="#">护肤</a>
+                <a href="#">彩妆</a>
+                <a href="#">美体</a>
+                <a href="#">时尚</a>
+                <a href="#">生活</a>
+                <a href="#">明星</a>
+                <a href="#">旅游</a>
+            </div>
+            <div class="h-category-banner">
+                <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/10/1302265327589d1f768c4534.45219797.jpg" alt=""></a>
+            </div>
+            <div class="h-category-hot">
+                <p class="title">
+                    <span>热点</span>
+                    <span>排行榜</span>
+                </p>
+                <ul>
+                    <li><i class="iconfont icon-right"></i><a href="#">她们怎么都美到爆！难道我穿了假红色？</a></li>
+                    <li><i class="iconfont icon-right"></i><a href="#">蒋依依出道已十年，想长成大人的模样 </a></li>
+                    <li><i class="iconfont icon-right"></i><a href="#">突变“痘生”，肌肤只能含恨而die？</a></li>
+                    <li><i class="iconfont icon-right"></i><a href="#">翻包大作战：名媛的化妆包里都有些啥？</a></li>
+                    <li><i class="iconfont icon-right"></i><a href="#">冬季游园沉醉于青草花香 </a></li>
+                    <li><i class="iconfont icon-right"></i><a href="#">条条出新意，每一季都玩新花样！</a></li>
+                    <li><i class="iconfont icon-right"></i><a href="#">好看的小哥哥们都在巴黎男装周戏梦 </a></li>
+                </ul>
+            </div>
+            <div class="h-category-article">
+                <div class="h-category-article-title">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/13/189767629458a1143d87b9c1.45410638.jpg" alt=""></a>
+                </div>
+                <p><a href="#">AB可能怀了假孕?</a></p>
+                <p>最近的微博热搜各位宝宝看了没?&nbspAngelababy顺利产子,真是喜大普奔呢。当然在沾喜气的同时也要来扒扒这位美孕妈的美丽经。</p>
+                <p><i class="iconfont icon-add"></i><a href="#">MORE</a></p>
+            </div>
+            <div class="h-category-article">
+                <div class="h-category-article-title">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/13/91162853458a113fea442e6.90014166.jpg" alt=""></a>
+                </div>
+                <p><a href="#">清洁，不彻底不罢休</a></p>
+                <p>美丽始于清洁，这点的重要性无需再阐述了。很多人不熟悉洁面霜应该怎么用，其清洁功效并不在于它能去除什么，而在于它能留存什么。</p>
+                <p><i class="iconfont icon-add"></i><a href="#">MORE</a></p>
+            </div>
+            <div class="h-category-article">
+                <div class="h-category-article-title">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/13/64281773158a11b859078e1.20337311.jpg" alt=""></a>
+                </div>
+                <p><a href="#">洁家勇士厨房清洁刷试用精选</a></p>
+                <p>刷头容易变弯?刷头要更换，但手柄仍然能操作，却要整支丢掉?洁家勇士最新推出的厨房清洁刷(6件)为你解决以上烦恼。</p>
+                <p><i class="iconfont icon-add"></i><a href="#">MORE</a></p>
+            </div>
+            <div class="h-category-goto">
+                <div class="goto">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/13/42776355958a1142622bb30.11880685.jpg" alt="">
+                    <span><i class="iconfont icon-right1"></i>羡慕Dior仙女们的秘密花园？</span></a>
+                </div>
+                <div class="goto">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1702/13/140979703158a114505437f6.38736434.jpg" alt="">
+                    <span><i class="iconfont icon-right1"></i>脸大脖子短，如何才能穿高领毛衣？</span></a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="home-category-title">
+            <img src="http://wwwimg.metroer.com/templates/default/images/home-brand.jpg" alt="">
+        </div>
+        <div class="top-brand-list">
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="top-brand-item">
+                <div class="cover">
+                    <a href="#"><img src="http://wwwimg.metroer.com/upload/1611/07/163944527758202089c93bb9.75224858.jpg" alt=""></a>
+                    <p>TOP1</p>
+                </div>
+                <div class="title"><a href="#">Avène 雅漾</a></div>
+                <div class="fields">
+                    <span class="comments"><i class="iconfont icon-message"></i><a href="#">10个点评</a></span>
+                    <span class="goods"><i class="iconfont icon-box"></i><a href="#">50个产品</a></span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="home-category-title"><img src="http://wwwimg.metroer.com/templates/default/images/home-recommend-bbs.jpg?v=1121" alt=""></div>
+        <div class="home-hot-list">
+            <div class="home-hot-item">
+                <div class="cover"><a href="#"><img src="http://wwwimg.metroer.com/upload/1612/15/1121240200585215e499a394.75674259.jpg" alt=""></a></div>
+                <div class="avater">
+                    <a href="#"><img src="http://myimg.metroer.com/images/face/7/10/43761_s.jpg" alt=""></a>
+                </div>
+                <div class="description">
+                    <p>在街边发现的一家小店,被小猫咪吸引进去了!</p>
+                    <span></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="home-hot-item">
+                <div class="avater">
+                    <a href="#"><img src="http://myimg.metroer.com/images/face/1/16/1091801_s.jpg" alt=""></a>
+                </div>
+                <div class="description">
+                    <p>今天浩然就跟大家分享几款适合秋冬季节使用的护肤彩妆!</p>
+                    <span></span>
+                </div>
+                <div class="cover"><a href="#"><img src="http://wwwimg.metroer.com/upload/1611/22/116048242858341da4b34b68.12929278.jpg" alt=""></a></div>
+                <div class="clear"></div>
+            </div>
+            <div class="home-hot-item">
+                <div class="cover"><a href="#"><img src="http://wwwimg.metroer.com/upload/1612/15/1280067596585216245a1d40.74758982.jpg" alt=""></a></div>
+                <div class="description">
+                    <p>扑面而来的是蓝色的海洋，瞬间爱上这家餐厅了！</p>
+                    <p class="arrow2"></p>
+                </div>
+                <div class="avater">
+                    <a href="#"><img src="http://myimg.metroer.com/images/face/1/31/3329177_s.jpg" alt=""></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="home-hot-item">
+                <div class="topic-list">
+                    <div class="title">
+                        <span>话题</span>
+                        排行榜
+                    </div>
+                    <ul>
+                        <li><i class="iconfont icon-right"></i><a href="#">iLady都市客小编教你赢试用</a></li>
+                        <li><i class="iconfont icon-right"></i><a href="#">关注都市客微博微信赢厚礼</a></li>
+                        <li><i class="iconfont icon-right"></i><a href="#">2016都市客M币赚取全攻略</a></li>
+                        <li><i class="iconfont icon-right"></i><a href="#">iady都市客福利礼品大公开</a></li>
+                    </ul>
+                </div>
+                <div class="goto"><a href="#"><img src="http://wwwimg.metroer.com/upload/1607/19/1413314590578da3f10f8244.53275444.jpg" alt=""></a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>
+    <script type="text/javascript" src="js/swiperr.js"></script>
+    <script type="text/javascript">
+        var haha = document.getElementById('city-swipe');
+
+        window.mySwipe = Swipe(
+                haha,
+                {
+                    startSlide: 0,      //表示轮播开始的图片编号
+                    auto: 2000,         //表示自动轮播的间隔
+                    continuous: true,   //表示是否再来一轮
+                    disableScroll: true,  //表示是否在上面阻止默认的滚轮事件，不用改
+                    stopPropagation: true,   //表示是否阻止冒泡，不用改。
+                    callback: function(index, element) {
+                        //写小圆点的业务
+                        $(".yuandian ul li").eq(index).addClass("cur").siblings().removeClass("cur");
+                    }
+                }
+        );
+
+        //小圆点的点击业务
+        $(".yuandian ul li").click(
+                function(){
+                    mySwipe.slide($(this).index(),1000);
+                }
+        );
+    </script>
